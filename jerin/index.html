@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine ❤️</title>
+
+<style>
+/* ===== BODY ===== */
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  font-family:Segoe UI,sans-serif;
+}
+
+/* ===== BIG RED BLINKING HEARTS ===== */
+.big-hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+.big-heart{
+  position:absolute;
+  width:140px;
+  height:140px;
+  background:linear-gradient(45deg,#ff1e56,#ff5f7e);
+  transform:rotate(-45deg);
+  animation:pulse 4s infinite ease-in-out;
+  opacity:.6;
+}
+.big-heart::before,
+.big-heart::after{
+  content:"";
+  position:absolute;
+  width:140px;
+  height:140px;
+  background:inherit;
+  border-radius:50%;
+}
+.big-heart::before{ top:-70px; left:0; }
+.big-heart::after{ left:70px; top:0; }
+
+@keyframes pulse{
+  0%,100%{ transform:rotate(-45deg) scale(.9); opacity:.4;}
+  50%{ transform:rotate(-45deg) scale(1.1); opacity:.9;}
+}
+
+/* ===== SMALL FLOATING RED HEARTS ===== */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+.heart{
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ff2e63;
+  transform:rotate(-45deg);
+  animation:floatUp 7s linear infinite, fade 2s infinite;
+}
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ff2e63;
+  border-radius:50%;
+}
+.heart::before{ top:-9px; left:0; }
+.heart::after{ left:9px; top:0; }
+
+@keyframes floatUp{
+  from{ transform:translateY(110vh) rotate(-45deg); }
+  to{ transform:translateY(-10vh) rotate(-45deg); }
+}
+@keyframes fade{
+  0%,100%{ opacity:.3; }
+  50%{ opacity:1; }
+}
+
+/* ===== CONTENT ===== */
+.box{
+  position:relative;
+  z-index:2;
+  background:white;
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+h1{ color:#ff1e56; }
+
+button{
+  padding:12px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px;
+}
+#yes{ background:#ff1e56; color:white; }
+#no{
+  background:#555;
+  color:white;
+  position:absolute;
+}
+/* ===== MEDIUM WHITE FLOATING HEARTS ===== */
+.white-hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.white-heart{
+  position:absolute;
+  width:26px;
+  height:26px;
+  background:rgba(255,255,255,0.75);
+  transform:rotate(-45deg);
+  animation:whiteFloat 10s linear infinite, whiteBlink 4s infinite;
+}
+
+.white-heart::before,
+.white-heart::after{
+  content:"";
+  position:absolute;
+  width:26px;
+  height:26px;
+  background:rgba(255,255,255,0.75);
+  border-radius:50%;
+}
+
+.white-heart::before{ top:-13px; left:0; }
+.white-heart::after{ left:13px; top:0; }
+
+@keyframes whiteFloat{
+  from{ transform:translateY(110vh) rotate(-45deg); }
+  to{ transform:translateY(-15vh) rotate(-45deg); }
+}
+
+@keyframes whiteBlink{
+  0%,100%{ opacity:.3; }
+  50%{ opacity:.85; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BIG HEARTS -->
+<div class="big-hearts">
+  <div class="big-heart" style="top:5%;left:5%;"></div>
+  <div class="big-heart" style="top:10%;right:10%;animation-delay:1s;"></div>
+  <div class="big-heart" style="bottom:12%;left:8%;animation-delay:2s;"></div>
+  <div class="big-heart" style="bottom:8%;right:12%;animation-delay:1.5s;"></div>
+</div>
+
+<!-- SMALL HEARTS -->
+<div class="hearts">
+  <div class="heart" style="left:10%;animation-delay:0s;"></div>
+  <div class="heart" style="left:30%;animation-delay:2s;"></div>
+  <div class="heart" style="left:50%;animation-delay:1s;"></div>
+  <div class="heart" style="left:70%;animation-delay:3s;"></div>
+  <div class="heart" style="left:90%;animation-delay:1.5s;"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="box">
+  <h1>Do you ❤️ Love Me?</h1>
+  <button id="yes" onclick="goNext()">Yes 😍</button>
+  <button id="no">No 😏</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover",()=>{
+  const x = Math.random()*(window.innerWidth-120);
+  const y = Math.random()*(window.innerHeight-60);
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+});
+
+function goNext(){
+  window.location.href="love.html";
+}
+</script>
+
+</body>
+</html>

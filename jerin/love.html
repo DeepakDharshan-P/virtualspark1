@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You 💗</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffe1ea,#fdf2f6);
+  font-family:Segoe UI,sans-serif;
+}
+
+/* SAME HEART STYLES */
+.big-hearts,.hearts{ position:fixed; inset:0; pointer-events:none; }
+.big-hearts{ z-index:0; }
+.hearts{ z-index:1; }
+
+.big-heart{
+  position:absolute;
+  width:110px;height:110px;
+  background:linear-gradient(45deg,#ff7a9c,#ffc1d3);
+  transform:rotate(-40deg);
+  animation:softPulse 4.5s infinite;
+  opacity:.45;
+}
+.big-heart::before,.big-heart::after{
+  content:"";position:absolute;
+  width:110px;height:110px;
+  background:inherit;border-radius:50%;
+}
+.big-heart::before{top:-55px;}
+.big-heart::after{left:55px;}
+
+@keyframes softPulse{
+  0%,100%{opacity:.3;}
+  50%{opacity:.7;}
+}
+
+.heart{
+  position:absolute;
+  width:16px;height:16px;
+  background:#ff8fab;
+  transform:rotate(-40deg);
+  animation:floatUp 8s linear infinite, blink 3s infinite;
+}
+.heart::before,.heart::after{
+  content:"";position:absolute;
+  width:16px;height:16px;
+  background:#ff8fab;border-radius:50%;
+}
+.heart::before{top:-8px;}
+.heart::after{left:8px;}
+
+@keyframes floatUp{
+  from{transform:translateY(110vh) rotate(-40deg);}
+  to{transform:translateY(-10vh) rotate(-40deg);}
+}
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:.8;}
+}
+
+.love-box{
+  position:relative;
+  z-index:2;
+  background:white;
+  padding:40px;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 12px 35px rgba(0,0,0,.18);
+}
+img{ width:240px; border-radius:18px; }
+h1{ color:#ff5c8a; }
+p{ font-size:18px; }
+/* ===== MEDIUM WHITE FLOATING HEARTS ===== */
+.white-hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.white-heart{
+  position:absolute;
+  width:26px;
+  height:26px;
+  background:rgba(255,255,255,0.75);
+  transform:rotate(-45deg);
+  animation:whiteFloat 10s linear infinite, whiteBlink 4s infinite;
+}
+
+.white-heart::before,
+.white-heart::after{
+  content:"";
+  position:absolute;
+  width:26px;
+  height:26px;
+  background:rgba(255,255,255,0.75);
+  border-radius:50%;
+}
+
+.white-heart::before{ top:-13px; left:0; }
+.white-heart::after{ left:13px; top:0; }
+
+@keyframes whiteFloat{
+  from{ transform:translateY(110vh) rotate(-45deg); }
+  to{ transform:translateY(-15vh) rotate(-45deg); }
+}
+
+@keyframes whiteBlink{
+  0%,100%{ opacity:.3; }
+  50%{ opacity:.85; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="big-hearts">
+  <div class="big-heart" style="top:10%; left:12%;"></div>
+  <div class="big-heart" style="bottom:12%; right:14%; animation-delay:1s;"></div>
+</div>
+
+<div class="hearts">
+  <div class="heart" style="left:25%;"></div>
+  <div class="heart" style="left:55%; animation-delay:2s;"></div>
+  <div class="heart" style="left:80%; animation-delay:1s;"></div>
+</div>
+
+<div class="love-box">
+  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+  <h1>I Love You 💗</h1>
+  <p>You just made my day brighter 😊</p>
+  <p>Every moment with you is precious to me 💗💗💗.</p>
+  <p>Thank you for being in my life and filling it with love and happiness 💕.</p>
+</div>
+
+</body>
+</html>
+
